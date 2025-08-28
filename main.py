@@ -2,6 +2,10 @@ import random
 
 opcoes = ["pedra", "papel", "tesoura"]
 
+vitorias = 0
+empates  = 0
+derrotas = 0
+
 print("=== JO-KEM-PO ===")
 print("Digite 'sair' para encerrar o jogo.\n")
 
@@ -23,12 +27,19 @@ while True:
 
     if jogador == computador:
         print("Empate\n")
+        empates += 1
 
     elif (jogador == "pedra" and computador == "tesoura") or\
         (jogador == "papel" and computador == "pedra")    or\
         (jogador == "tesoura" and computador == "papel"):
         print("Você ganhou!\n")
+        vitorias += 1
 
     else:
         print("Você perdeu!\n")
+        derrotas +=1
+
+    #placar
+    print(f"VITORIAS: {vitorias} | EMPATES: {empates} | DERROTAS: {derrotas}")
+    print("---------------------------------------------")
         
