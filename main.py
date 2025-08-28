@@ -1,4 +1,5 @@
 import random
+import time
 
 opcoes = ["pedra", "papel", "tesoura"]
 
@@ -29,6 +30,14 @@ while True:
         continue
 
     computador = random.choice(opcoes)
+
+    # suspense antes de mostrar resultados
+    print("\nJO...")
+    time.sleep(0.7)
+    print("KEN...")
+    time.sleep(0.7)
+    print("PO!!!\n")
+    time.sleep(0.5)
 
     #mostrando jogadas
     print(f"\nVocê escolheu: {jogador} {emojis[jogador]}")
