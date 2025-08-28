@@ -1,20 +1,34 @@
 import random
 
 opcoes = ["pedra", "papel", "tesoura"]
-jogador = input("Escolha entre pedra, papel ou tesoura: ")
-computador = random.choice(opcoes)
 
-print(f"Você escolheu: {jogador}")
-print(f"O computador escolheu: {computador}")
+print("=== JO-KEM-PO ===")
+print("Digite 'sair' para encerrar o jogo.\n")
 
-if jogador == computador:
-    print("Empate")
+while True:
+    jogador = input("Escolha entre: pedra, papel ou tesoura:  ").lower().strip()
 
-elif (jogador == "pedra" and computador == "tesoura") or\
-    (jogador == "papel" and computador == "pedra")    or\
-    (jogador == "tesoura" and computador == "papel"):
-    print("Você ganhou!")
+    if jogador == "sair":
+        print("Jogo encerrado")
+        break
 
-else:
-    print("Você perdeu!")
-    
+    if jogador not in opcoes:
+        print("Escolha inválida\n")
+        continue
+
+    computador = random.choice(opcoes)
+
+    print(f"\nVocê escolheu: {jogador}")
+    print(f"O computador escolheu: {computador}\n")
+
+    if jogador == computador:
+        print("Empate\n")
+
+    elif (jogador == "pedra" and computador == "tesoura") or\
+        (jogador == "papel" and computador == "pedra")    or\
+        (jogador == "tesoura" and computador == "papel"):
+        print("Você ganhou!\n")
+
+    else:
+        print("Você perdeu!\n")
+        
