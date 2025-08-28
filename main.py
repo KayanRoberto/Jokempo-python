@@ -2,6 +2,14 @@ import random
 
 opcoes = ["pedra", "papel", "tesoura"]
 
+#dicionario de emoji
+emojis = {
+    "pedra": "✊",
+    "papel": "✋",
+    "tesoura": "✌"
+    }
+
+#placar
 vitorias = 0
 empates  = 0
 derrotas = 0
@@ -22,8 +30,9 @@ while True:
 
     computador = random.choice(opcoes)
 
-    print(f"\nVocê escolheu: {jogador}")
-    print(f"O computador escolheu: {computador}\n")
+    #mostrando jogadas
+    print(f"\nVocê escolheu: {jogador} {emojis[jogador]}")
+    print(f"O computador escolheu: {computador}{emojis[computador]}\n")
 
     if jogador == computador:
         print("Empate\n")
@@ -39,7 +48,7 @@ while True:
         print("Você perdeu!\n")
         derrotas +=1
 
-    #placar
+    #contador do pontos
     print(f"VITORIAS: {vitorias} | EMPATES: {empates} | DERROTAS: {derrotas}")
     print("---------------------------------------------")
         
