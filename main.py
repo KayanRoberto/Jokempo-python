@@ -3,23 +3,30 @@ import time
 
 opcoes = ["pedra", "papel", "tesoura"]
 
-#dicionario de emoji
+
+# Códigos ANSI para cores
+VERMELHO = "\033[31m"
+VERDE = "\033[32m"
+AMARELO = "\033[33m"
+RESET = "\033[0m"
+
+# dicionário de emoji
 emojis = {
     "pedra": "✊",
     "papel": "✋",
     "tesoura": "✌"
-    }
+}
 
-#placar
+# placar
 vitorias = 0
-empates  = 0
+empates = 0
 derrotas = 0
 
 print("=== JO-KEM-PO ===")
 print("Digite 'sair' para encerrar o jogo.\n")
 
 while True:
-    jogador = input("Escolha entre: pedra, papel ou tesoura:  ").lower().strip()
+    jogador = input("Escolha entre: pedra, papel ou tesoura: ").lower().strip()
 
     if jogador == "sair":
         print("Jogo encerrado")
@@ -39,25 +46,24 @@ while True:
     print("PO!!!\n")
     time.sleep(0.5)
 
-    #mostrando jogadas
+    # mostrando jogadas
     print(f"\nVocê escolheu: {jogador} {emojis[jogador]}")
-    print(f"O computador escolheu: {computador}{emojis[computador]}\n")
+    print(f"O computador escolheu: {computador} {emojis[computador]}\n")
 
     if jogador == computador:
-        print("Empate\n")
+        print(f"{AMARELO}EMPATE!!! {RESET}\n")
         empates += 1
 
-    elif (jogador == "pedra" and computador == "tesoura") or\
-        (jogador == "papel" and computador == "pedra")    or\
-        (jogador == "tesoura" and computador == "papel"):
-        print("Você ganhou!\n")
+    elif (jogador == "pedra" and computador == "tesoura") or \
+         (jogador == "papel" and computador == "pedra") or \
+         (jogador == "tesoura" and computador == "papel"):
+        print(f"{VERDE}VOCÊ GANHOU!!! {RESET}\n")
         vitorias += 1
 
     else:
-        print("Você perdeu!\n")
-        derrotas +=1
+        print(f"{VERMELHO}VOCÊ PERDEU!!! {RESET}\n")
+        derrotas += 1
 
-    #contador do pontos
-    print(f"VITORIAS: {vitorias} | EMPATES: {empates} | DERROTAS: {derrotas}")
+    # contador de pontos
+    print(f"VITÓRIAS: {vitorias} | EMPATES: {empates} | DERROTAS: {derrotas}")
     print("---------------------------------------------")
-        
